@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="One-2-3-45++: Fast Single Image to 3D Objects with Consistent Multi-View Generation and 3D Diffusion.">
+  <meta name="keywords" content="3D AIGC, single image to 3D, single image reconstruction, text to 3D">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One-2-3-45++</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/figure/logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://cseweb.ucsd.edu/~mil070/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Related Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://one-2-3-45.github.io">
+            One-2-3-45
+          </a>
+          <a class="navbar-item" href="https://github.com/cvlab-columbia/zero123">
+            Zero123
+          </a>
+          <a class="navbar-item" href="https://github.com/SUDO-AI-3D/zero123plus">
+            Zero123++
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-1 publication-title">One-2-3-45++: Fast Single Image to 3D Objects with Consistent Multi-View Generation and 3D Diffusion</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://cseweb.ucsd.edu/~mil070/">Minghua Liu</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://rshi.top">Ruoxi Shi</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://ootts.github.io">Linghao Chen</a><sup>1,2*^</sup>,
+            </span>
+            <span class="author-block">
+              <a href="/">Zhuoyang Zhang</a><sup>3*^</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://chaoxu.xyz">Chao Xu</a><sup>4*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://sarahweiii.github.io">Xinyue Wei</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://lakonik.github.io">Hansheng Chen</a><sup>5^</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://www.ncj.wiki">Chong Zeng</a><sup>2^</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://cseweb.ucsd.edu/~jigu/">Jiayuan Gu</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://cseweb.ucsd.edu//~haosu/">Hao Su</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>UC San Diego,</span>
+            <span class="author-block"><sup>2</sup>Zhejiang University,</span>
+            <span class="author-block"><sup>3</sup>Tsinghua University,</span>
+            <span class="author-block"><sup>4</sup>UCLA,</span>
+            <span class="author-block"><sup>5</sup>Stanford University</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">* Equal contribution.</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">^ Work done during internship at UC San Diego.</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href=""
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-desktop"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-centered">
+      <div class="has-text-centered">
+        <video id="dollyzoom" autoplay controls muted loop playsinline width="80%">
+          <source src="./static/video/teaser.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="columns is-centered ">
+        <div class="column is-four-fifths">
+        One-2-3-45++ is capable of transforming <font color="#3a86ff"> <b>a single RGB image</b> </font> of any object into a high-fidelity textured mesh <font color="#3a86ff"> <b>in under one minute</b></font> . The generated meshes closely mirror the of the original input image. One-2-3-45++ can be <font color="#3a86ff"> <b> trained with only 8 A100 GPUs</b></font>. 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Recent advancements in open-world 3D object generation have been remarkable, with image-to-3D methods offering superior fine-grained control over their text-to-3D counterparts. However, most existing models fall short in simultaneously providing rapid generation speeds and high fidelity to input images - two features essential for practical applications. In this paper, we present One-2-3-45++, an innovative method that transforms a single image into a detailed 3D textured mesh in approximately one minute. Our approach aims to fully harness the extensive knowledge embedded in 2D diffusion models and priors from valuable yet limited 3D data. This is achieved by initially fine-tuning a 2D diffusion model for consistent multi-view image generation, followed by elevating these images to 3D with the aid of multi-view conditioned 3D native diffusion models. Extensive experimental evaluations demonstrate that our method can produce high-quality, diverse 3D assets that closely mirror the original input image.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class = "has-text-centered">
+          <h2 class="title is-3">Method</h2>
+        </div>
+          <img src="./static/figure/method.png"
+          class=""
+          alt=""/>
+        Starting with a single image as input, we initially produce consistent multi-view images by fine-tuning a 2D diffusion model. These multi-view images are then elevated into 3D through a pair of 3D native diffusion networks. Throughout the 3D diffusion process, the generated multi-view images act as essential guiding conditions. After extracting the 3D mesh from the denoised volume, we further enhance the texture by employing a lightweight optimization with multi-view images as supervision. Our One-2-3-45++ is capable of producing an initial textured mesh  <font color="#3a86ff"><b>within 20 seconds</b></font> and delivers a refined one in <font color="#3a86ff"><b>roughly one minute </b></font>.
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class = "has-text-centered">
+          <h2 class="title is-3">Input from DreamFusion Prompts</h2>
+        </div>
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/video/text.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class = "has-text-centered">
+          <h2 class="title is-3">Input from GSO</h2>
+        </div>
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/video/gso.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class = "has-text-centered">
+          <h2 class="title is-3">Input from One-2-3-45</h2>
+        </div>
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/video/12345.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class = "has-text-centered">
+          <h2 class="title is-3">User Study</h2>
+        </div>
+          <img src="./static/figure/user_study.png"
+          class=""
+          alt=""/>
+          Results of a user study involving 53 participants. Each cell displays the probability or preference rate at which one method (row) outperforms another (column).
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class = "has-text-centered">
+          <h2 class="title is-3">Applications</h2>
+        </div>
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/video/aipoly.mp4"
+                  type="video/mp4">
+        </video>
+        <p>
+          One-2-3-45++ can significantly enhance the efficiency and creativity of 3D game artists. Every 3D asset featured in the video was created by our AI in under 60 seconds.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{liu2023one2345,
+      title={One-2-3-45++: Fast Single Image to 3D Objects with Consistent Multi-View Generation and 3D Diffusion}, 
+      author={Minghua Liu and Ruoxi Shi and Linghao Chen and Zhuoyang Zhang and Chao Xu and Hansheng Chen and Chong Zeng and Jiayuan Gu and Hao Su},
+      year={2023},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
